@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./SignUp.css";
 
 function SignUp() {
@@ -47,7 +48,9 @@ function SignUp() {
           value={password}
           onChange={(event) => setPassword(event.target.value)}
         />
-
+        <p>
+          Already have an account? <Link to="/login">Log in</Link>
+        </p>
         <button type="submit">Sign Up</button>
       </form>
     </div>

@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 import HomePage from "./components/Home/Home";
 import Login from "./components/Login/Login";
+import Rooms from "./components/Rooms/Rooms";
 import SignUp from "./components/SignUp/SignUp";
 import Main from "./layout/Main";
 
@@ -12,7 +13,7 @@ function App() {
       element: <Main />,
       children: [
         { path: "/", element: <HomePage /> },
-        { path: "/rooms", element: <div>Rooms</div> },
+        { path: "/rooms", element: <Rooms /> },
         { path: "/about", element: <div>About</div> },
         { path: "/contact", element: <div>Contact</div> },
         { path: "/signup", element: <SignUp /> },

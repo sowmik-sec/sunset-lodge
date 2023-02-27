@@ -5,6 +5,7 @@ import roomImage1 from "../../assets/images/cottage.jpg";
 import roomImage2 from "../../assets/images/cottage.jpg";
 import roomImage3 from "../../assets/images/cottage.jpg";
 import roomImage4 from "../../assets/images/cottage.jpg";
+import { Link, Navigate } from "react-router-dom";
 
 function HomePage() {
   return (
@@ -15,7 +16,9 @@ function HomePage() {
           <p className="subtitle">
             Experience luxury accommodation like never before
           </p>
-          <button className="button is-primary">Book Now</button>
+          <Link to="/rooms">
+            <button className="button is-primary">Book Now</button>
+          </Link>
         </div>
       </div>
       <div className="rooms">

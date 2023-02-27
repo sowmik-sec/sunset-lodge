@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./Login.css";
 
 function Login() {
@@ -29,7 +30,11 @@ function Login() {
           value={password}
           onChange={(event) => setPassword(event.target.value)}
         />
-
+        <p>
+          <small>
+            New to sunset lodge? <Link to="/signup">Sign Up</Link>
+          </small>
+        </p>
         <button type="submit">Login</button>
       </form>
     </div>
