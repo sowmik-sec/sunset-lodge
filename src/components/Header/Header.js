@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/images/cottage.jpg";
+import { AuthContext } from "../../context/UserContext";
 import "./Header.css";
 
 function Header() {
+  const { user } = useContext(AuthContext);
+
   return (
     <header>
       <nav className="navbar">
@@ -32,21 +35,26 @@ function Header() {
                 Contact
               </Link>
             </li>
-            <li className="nav-item">
-              <Link to="/login" className="nav-link">
-                Login
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/signup" className="nav-link">
-                Sign Up
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/signout" className="nav-link">
-                Sign Out
-              </Link>
-            </li>
+            {user?.uid ? (
+              <li className="nav-item">
+                <Link to="/" className="nav-link">
+                  Sign Out
+                </Link>
+              </li>
+            ) : (
+              <>
+                <li className="nav-item">
+                  <Link to="/login" className="nav-link">
+                    Login
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link to="/signup" className="nav-link">
+                    Sign Up
+                  </Link>
+                </li>
+              </>
+            )}
           </ul>
           <div className="nav-icon">
             <i className="fas fa-bars"></i>
