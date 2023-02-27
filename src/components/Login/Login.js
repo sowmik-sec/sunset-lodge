@@ -1,14 +1,20 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/UserContext";
 import "./Login.css";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const { login } = useContext(AuthContext);
   const handleSubmit = (event) => {
     event.preventDefault();
-    // send login data to server or process it here
+    login(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log("user logged in", user);
+      })
+      .catch((error) => console.error(error));
   };
 
   return (
