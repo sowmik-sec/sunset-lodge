@@ -5,8 +5,14 @@ import { AuthContext } from "../../context/UserContext";
 import "./Header.css";
 
 function Header() {
-  const { user } = useContext(AuthContext);
-
+  const { user, logout } = useContext(AuthContext);
+  const handleSignOut = () => {
+    logout()
+      .then(() => {
+        console.log("user logged out");
+      })
+      .catch((error) => console.error(error));
+  };
   return (
     <header>
       <nav className="navbar">
@@ -37,7 +43,7 @@ function Header() {
             </li>
             {user?.uid ? (
               <li className="nav-item">
-                <Link to="/" className="nav-link">
+                <Link to="/" onClick={handleSignOut} className="nav-link">
                   Sign Out
                 </Link>
               </li>
