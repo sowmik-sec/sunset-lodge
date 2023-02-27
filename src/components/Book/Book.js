@@ -1,6 +1,8 @@
 import React from "react";
 
-const Book = ({ bookingClass, price }) => {
+const Book = (props) => {
+  const { bookingClass, price } = props;
+  console.log(props);
   return (
     <div>
       <h1>Thank you for staying with us</h1>

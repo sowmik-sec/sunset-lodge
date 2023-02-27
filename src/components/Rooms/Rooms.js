@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import roomImage1 from "../../assets/images/cottage.jpg";
 import roomImage2 from "../../assets/images/cottage.jpg";
 import roomImage3 from "../../assets/images/cottage.jpg";
@@ -7,8 +8,10 @@ import Book from "../Book/Book";
 import "./Rooms.css";
 
 const Rooms = () => {
+  const navigate = useNavigate();
   const handleBookClick = (bookingClass, price) => {
-    <Book bookingClass={bookingClass} price={price} />;
+    // <Book bookingClass={bookingClass} price={price} />;
+    <Navigate to="/book" replace={true} />;
   };
 
   return (
@@ -22,12 +25,14 @@ const Rooms = () => {
           <div className="card-content">
             <h3 className="title is-5">Deluxe Room</h3>
             <p className="price">$200/night</p>
-            <button
-              onClick={() => handleBookClick("Delux Room", 200)}
-              className="button is-primary"
-            >
-              Book Now
-            </button>
+            <Link to="/book">
+              <button
+                onClick={() => handleBookClick("Delux Room", 200)}
+                className="button is-primary"
+              >
+                Book Now
+              </button>
+            </Link>
           </div>
         </div>
         <div className="card">
@@ -38,7 +43,7 @@ const Rooms = () => {
             <h3 className="title is-5">Executive Suite</h3>
             <p className="price">$300/night</p>
             <button
-              onClick={() => handleBookClick("Delux Room", 200)}
+              onClick={() => handleBookClick("Executive Suite", 300)}
               className="button is-primary"
             >
               Book Now
@@ -53,7 +58,7 @@ const Rooms = () => {
             <h3 className="title is-5">Presidential Suite</h3>
             <p className="price">$500/night</p>
             <button
-              onClick={() => handleBookClick("Delux Room", 200)}
+              onClick={() => handleBookClick("Presidential Suite", 500)}
               className="button is-primary"
             >
               Book Now
@@ -68,7 +73,7 @@ const Rooms = () => {
             <h3 className="title is-5">Royal Suite</h3>
             <p className="price">$800/night</p>
             <button
-              onClick={() => handleBookClick("Delux Room", 200)}
+              onClick={() => handleBookClick("Royal Suite", 800)}
               className="button is-primary"
             >
               Book Now
