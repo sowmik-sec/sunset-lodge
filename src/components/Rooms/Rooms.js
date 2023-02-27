@@ -11,7 +11,7 @@ const Rooms = () => {
   const navigate = useNavigate();
   const handleBookClick = (bookingClass, price) => {
     // <Book bookingClass={bookingClass} price={price} />;
-    <Navigate to="/book" replace={true} />;
+    return <Navigate to="/book" state={{ bookingClass, price }} />;
   };
 
   return (
