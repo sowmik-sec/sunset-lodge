@@ -1,17 +1,17 @@
 import React from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import roomImage1 from "../../assets/images/cottage.jpg";
 import roomImage2 from "../../assets/images/cottage.jpg";
 import roomImage3 from "../../assets/images/cottage.jpg";
 import roomImage4 from "../../assets/images/cottage.jpg";
-import Book from "../Book/Book";
 import "./Rooms.css";
 
 const Rooms = () => {
   const navigate = useNavigate();
   const handleBookClick = (bookingClass, price) => {
     // <Book bookingClass={bookingClass} price={price} />;
-    return <Navigate to="/book" state={{ bookingClass, price }} />;
+    // return <Navigate to="/book" state={{ bookingClass, price }} />;
+    navigate("/book");
   };
 
   return (
